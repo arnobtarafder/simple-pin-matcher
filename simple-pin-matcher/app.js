@@ -1,8 +1,8 @@
 function getPin() {
-    const pin = Math.round(Math.random() * 100000);
+    const pin = Math.round(Math.random() * 90000) +10000;
     const pinString = pin + "";
     if(pinString.length == 5) {
-        return pin;
+        return pin + pinString.length;
     }
     else {
         console.log("got less than 4 digin number and calling again", pin);
@@ -13,7 +13,8 @@ function getPin() {
 function generatePin() {
     const pin = getPin();
     console.log(pin);
-    document.getElementById("display-pin").value = pin;
+    // document.getElementById("display-pin").value = pin;
+    return Math.floor(Math.random()*90000) + 10000; 
 }
 
 document.getElementById("key-pad").addEventListener("click", function(event) {
@@ -43,6 +44,7 @@ function verifyPin() {
     if(pin == typedNumbers) {
         successMessage.style.display = "block";
         failError.style.display = "none";
+        window.location.href = "shopping-cart-solution";
         console.log("matched bro..congratulations!!YAY");
     }
     else {
